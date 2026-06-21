@@ -1,78 +1,93 @@
-# Note_Reminder_App
 # Note Reminder App
 
-## 📌 Project Overview
+A full-featured Flutter note and reminder application with secure authentication, local storage, and push notifications.
 
-The Note Reminder App is a Flutter-based mobile application designed to help users efficiently manage notes, tasks, and reminders. The application provides secure user authentication, note organization, reminder scheduling, and productivity tracking through an intuitive dashboard. Built with Flutter, Dart, and Hive local storage, the app works completely offline while offering a smooth and responsive user experience.
-
-## 🚀 Key Features
+## Features
 
 ### Authentication
-
-* User Registration and Login
-* Secure Logout Functionality
-* Forgot Password with Reset Token Support
-* SHA-256 Password Hashing with Salt
+- User registration and login
+- Forgot password with secure reset tokens
+- SHA-256 password hashing with salt
+- Session persistence
 
 ### Dashboard
-
-* Personalized Welcome Message
-* Total Notes Statistics
-* Pending Reminder Count
-* Completed Tasks Tracking
-* Upcoming Reminders Overview
-* Next 5 Upcoming Reminder Display
+- Welcome screen with user name
+- Total notes, pending reminders, and completed tasks counts
+- Upcoming reminders overview
 
 ### Notes Management
+- Create, edit, delete, and view notes
+- Search notes by title or content
+- Category tags: Personal, Study, Work
+- Priority levels: High, Medium, Low
+- Filter notes by category
 
-* Create Notes
-* Edit Notes
-* Delete Notes
-* View All Notes
-* Search by Title or Content
-* Category Management (Personal, Study, Work)
-* Priority Levels (High, Medium, Low)
-* Filter Notes by Category
+### Reminders
+- Set date and time reminders
+- Local notification alerts
+- Repeat reminders (Daily / Weekly)
+- Mark reminders as completed
 
-### Reminder System
+### Additional
+- Dark / Light mode toggle
+- Profile management (edit name, change password)
+- Local Hive database storage
+- Responsive Material 3 UI
 
-* Date and Time Selection
-* Local Push Notifications
-* Daily and Weekly Repeat Options
-* Reminder Scheduling
-* Mark Tasks as Completed
+## Getting Started
 
-### Profile & Settings
+### Prerequisites
+- Flutter SDK 3.9+
+- Android Studio / VS Code with Flutter extension
 
-* Edit User Profile
-* Change Password
-* Dark Mode and Light Mode Support
-* Personalized Application Settings
+### Run the App
 
-### Storage & Performance
+```bash
+cd note_reminder_app
+flutter pub get
+flutter run
+```
 
-* Hive Local Database Integration
-* Offline Data Storage
-* Fast Data Retrieval
-* No Internet Connection Required
+### Build APK
 
-## 🛠️ Technologies Used
+```bash
+flutter build apk --release
+```
 
-* Flutter
-* Dart
-* Hive Database
-* Flutter Local Notifications
-* Provider State Management
-* Material 3 UI Design
-* Git & GitHub
+## Project Structure
 
-## 🎯 Project Benefits
+```
+lib/
+├── main.dart                 # App entry point
+├── models/                   # Data models (Note, User)
+├── providers/                # State management (Provider)
+├── services/                 # Auth, Database, Notifications
+├── screens/                  # UI screens
+│   ├── auth/                 # Login, Register, Forgot Password
+│   ├── dashboard/            # Dashboard with stats
+│   ├── home/                 # Main navigation shell
+│   ├── notes/                # Notes list & form
+│   └── profile/              # Profile & settings
+├── widgets/                  # Reusable UI components
+└── utils/                    # Theme & constants
+```
 
-* Improves productivity and time management
-* Helps organize personal and academic tasks
-* Provides secure user authentication
-* Supports offline note management
-* Delivers timely reminder notifications
-* Offers a modern and responsive user interface
+## Tech Stack
 
-The Note Reminder App serves as a complete task and note management solution, enabling users to stay organized, track important activities, and manage reminders efficiently through a secure and user-friendly mobile application.
+| Feature | Package |
+|---------|---------|
+| State Management | provider |
+| Local Database | hive, hive_flutter |
+| Notifications | flutter_local_notifications |
+| Password Security | crypto (SHA-256) |
+| Session | shared_preferences |
+
+## Storage
+
+This app uses **Hive** for local offline storage. All user data and notes are stored on-device. No internet connection required.
+
+To migrate to Firebase later, replace `DatabaseService` and `AuthService` with Firebase equivalents.
+
+## License
+
+MIT
